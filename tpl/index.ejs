@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/index.css">
+    <script src="/js/angular.min.js"></script>
+    <script src="/js/service.js"></script>
+    <script src="/js/index.js"></script>
+</head>
+<body ng-app="myapp" ng-controller="stu">
+
+<div class="header">
+     学生花名册
+</div>
+<div >
+    <table>
+        <tr>
+            <th>名字</th>
+            <th>年龄</th>
+            <th>性别</th>
+            <th>班级</th>
+            <th>操作</th>
+        </tr>
+
+        <tr ng-repeat="item in data">
+            <td>
+
+                <input type="text" ng-model="item.name" ng-blur="blur(item.id,item.name,'name')">
+
+            </td>
+            <td>
+                <input type="text" ng-model="item.age" ng-blur="blur(item.id,item.age,'age')">
+            </td>
+            <td>
+                <input type="text" ng-model="item.sex" ng-blur="blur(item.id,item.sex,'sex')">
+            </td>
+            <td>
+                <input type="text" ng-model="item.classes" ng-blur="blur(item.id,item.classes,'classes')">
+            </td>
+            <td>
+                <a href="javascsript:;" ng-click="del(item.id)">删除</a>
+
+
+
+            </td>
+        </tr>
+
+    </table>
+</div>
+    <div class="add" ng-click="add()">
+        添加
+    </div>
+
+<div style="width:100vw;height:100vh;background:rgba(0,0,0,.5);position: fixed;left:0;top:0;" ng-show="isshow==true"></div>
+
+</body>
+</html>
