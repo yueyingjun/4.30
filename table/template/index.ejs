@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/index.css">
+    <script src="/js/angular.min.js"></script>
+    <script src="/js/angular-route.min.js"></script>
+    <script src="/js/angular-animate.min.js"></script>
+    <script src="/js/index.js"></script>
+</head>
+<body ng-app="myApp">
+
+<div class="box" >
+    <div class="header">学籍管理系统</div>
+    <!--<div ng-view>-->
+
+    <!--</div>-->
+    <div >
+        <table  cellspacing="0";cellpadding="0">
+            <tr>
+                <th>学号</th>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>年龄</th>
+                <th>操作</th>
+            </tr>
+            <tr ng-repeat="item in data">
+                <td class="first" >
+                    <input type="text" ng-model="item.num" ng-blur="update(item.id,item.num,'num')">
+                </td>
+                <td class="first" >
+                    <input type="text" ng-model="item.name" ng-blur="update(item.id,item.name,'name')">
+                </td>
+                <td class="first" >
+                    <input type="text" ng-model="item.sex" ng-blur="update(item.id,item.sex,'sex')">
+                </td>
+                <td class="first" >
+                    <input type="text" ng-model="item.age" ng-blur="update(item.id,item.age,'age')">
+                </td>
+                <td class="caoZuo">
+                    <div class='del' id="{{item.id}}" ng-click="del(item.id)">删除</div>
+
+                </td>
+            </tr>
+
+        </table>
+        <div style="width: 100vw;height: 100vh;background-color: rgba(0,0,0,.5);position: fixed;left:0;top:0" ng-show="show===true">
+            <div class="tishi">操作成功</div>
+        </div>
+    </div>
+    <div ng-controller="btn">
+    <div class="btn" ng-click="show()" ng-show="isshow==true"><a href="">添加</a></div>
+    <div class="btn" ng-click="show()" ng-show="isshow==false"><a href="">完成</a></div>
+    </div>
+
+</div>
+
+
+</body>
+</html>
