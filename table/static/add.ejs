@@ -1,0 +1,43 @@
+<style>
+    .view-animation.ng-enter, .view-animation.ng-leave {
+        transition:0.5s linear all;
+        position:fixed;
+        left:0;
+        top:50px;
+        width:100%;
+    }
+    .view-animation.ng-enter {
+        transform:translateX(100%);
+    }
+    .view-animation.ng-leave,
+    .view-animation.ng-enter.ng-enter-active {
+        transform:translateX(0%);
+    }
+    .view-animation.ng-leave.ng-leave-active {
+        transform:translateX(-100%);
+    }
+</style>
+<table  cellspacing="0";cellpadding="0">
+    <tr>
+        <th>姓名</th>
+        <th>性别</th>
+        <th>年龄</th>
+        <th>班级</th>
+
+    </tr>
+    <tr>
+        <td>
+            <input type="text" ng-model="name">
+        </td>
+        <td>
+            <input type="text" ng-model="sex">
+        </td>
+        <td>
+            <input type="text" ng-model="age">
+        </td>
+        <td>
+            <input type="text" ng-model="classes">
+        </td>
+    </tr>
+</table>
+<a href="javascript:;" ng-click="addtable(name,sex,age,classes)" class="add">添加完成</a>
