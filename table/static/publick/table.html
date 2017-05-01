@@ -1,0 +1,34 @@
+<div >
+    <table  cellspacing="0";cellpadding="0">
+        <tr>
+            <th>学号</th>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>年龄</th>
+            <th>操作</th>
+        </tr>
+        <tr ng-repeat="item in data">
+            <td class="first" >
+                <input type="text" ng-model="item.num" ng-blur="update(item.id,item.num,'num')">
+            </td>
+            <td class="first" >
+                <input type="text" ng-model="item.name" ng-blur="update(item.id,item.name,'name')">
+            </td>
+            <td class="first" >
+                <input type="text" ng-model="item.sex" ng-blur="update(item.id,item.sex,'sex')">
+            </td>
+            <td class="first" >
+                <input type="text" ng-model="item.age" ng-blur="update(item.id,item.age,'age')">
+            </td>
+            <td class="caoZuo">
+                <div class='del' id="{{item.id}}" ng-click="del(item.id)">删除</div>
+
+            </td>
+        </tr>
+
+    </table>
+    <div class="btn"><a href="#!/add">添加</a></div>
+    <div style="width: 100vw;height: 100vh;background-color: rgba(0,0,0,.5);position: fixed;left:0;top:0" ng-show="show===true">
+        <div class="tishi">操作成功</div>
+    </div>
+</div>
