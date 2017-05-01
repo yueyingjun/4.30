@@ -1,0 +1,27 @@
+<table class="table table-bordered">
+    <tr>
+        <th>学号</th>
+        <th>姓名</th>
+        <th>性别</th>
+        <th>年龄</th>
+        <th>操作</th>
+    </tr>
+    <tr id="" ng-repeat="item in data">
+        <td class="num">
+            <input type="text" ng-model="item.num" ng-blur="blur(item.id,'num',item.num)">
+        </td>
+        <td class="name">
+            <input type="text" ng-model="item.name" ng-blur="blur(item.id,'name',item.name)">
+        </td>
+        <td class="sex">
+            <input type="text" ng-model="item.sex" ng-blur="blur(item.id,'sex',item.sex)">
+        </td>
+        <td class="age">
+            <input type="text" ng-model="item.age" ng-blur="blur(item.id,'age',item.age)">
+        </td>
+        <td class="caozuo">
+            <a href="jabascript:;" class="del" ng-click="del(item.id)">删除</a>
+        </td>
+    </tr>
+</table>
+<div class="add"><a href="#!/add">添加</a></div>
