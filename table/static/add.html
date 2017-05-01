@@ -1,0 +1,24 @@
+
+<div class="tit" ng-controller="add">
+学生信息管理
+</div>
+<table>
+    <tr>
+        <th>姓名</th>
+        <th>性别</th>
+        <th>年龄</th>
+        <th>班级</th>
+        <th>操作</th>
+    </tr>
+    <tr>
+        <td><input type="text" ng-model="name" ng-blur="blur(name,'name')"></td>
+        <td><input type="text" ng-model="sex" ng-blur="blur(sex,'sex')"></td>
+        <td><input type="text" ng-model="age" ng-blur="blur(age,'age')"></td>
+        <td><input type="text" ng-model="classes" ng-blur="blur(classes,'classes')"></td>
+        <td></td>
+    </tr>
+</table>
+<div class="add" ng-click="add()">
+    <a href="#!/">提交</a>
+</div>
+<div class="zhezhao" ng-show="isshow==true"></div>
