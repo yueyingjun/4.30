@@ -1,0 +1,17 @@
+<table>
+    <tr>
+        <th>姓名</th>
+        <th>年龄</th>
+        <th>性别</th>
+        <th>班级</th>
+        <th>操作</th>
+    </tr>
+    <tr ng-repeat="item in data">
+        <td><input type="text" ng-model="item.name" ng-blur="tableblur(item.id,item.name,'name')"></td>
+        <td><input type="text" ng-model="item.age" ng-blur="tableblur(item.id,item.age,'age')"></td>
+        <td><input type="text" ng-model="item.sex" ng-blur="tableblur(item.id,item.sex,'sex')"></td>
+        <td><input type="text" ng-model="item.classes" ng-blur="tableblur(item.id,item.classes,'classes')"></td>
+        <td><a href="javascript:;" ng-click="tabledel(item.id)">删除</a></td>
+    </tr>
+</table>
+<a href="#!/add" class="add">添加</a>

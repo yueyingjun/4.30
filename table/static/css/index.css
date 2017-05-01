@@ -1,0 +1,21 @@
+table{
+    width: 600px;
+    margin: auto;
+    border-collapse: collapse;
+}
+table tr,table td,table th{
+    border: 1px solid #000;
+}
+input{
+    width: 120px;
+}
+.add{
+    display: block;
+    width: 598px;
+    height: 40px;
+    border:1px solid #000;
+    border-top: none;
+    text-align: center;
+    line-height: 40px;
+    margin: 0 auto;
+}
