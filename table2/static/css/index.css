@@ -1,0 +1,29 @@
+.box{
+    width:1000px;
+    margin: 0 auto;
+    margin-top: 40px;
+}
+.box:after,.box:before{
+    display: block;
+    content: '';
+    clear: both;
+}
+table tr th{
+    text-align: center;
+}
+table{
+    text-align: center;
+}
+table tr td a{
+    margin-right: 10px;
+}
+.add{
+    width:100%;
+    height:40px;
+    background: #eee;
+    text-align: center;
+    cursor: pointer;
+    font-size: 20px;
+    line-height: 40px;
+}
+
