@@ -1,0 +1,53 @@
+html,body{
+    padding:0;
+    margin: 0;
+}
+.tit{
+    width: 600px;
+    margin:auto;
+    height:40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 16px;
+    color:#000;
+    background: #ccc;
+    margin-top: 100px;
+}
+table{
+    width:600px;
+    margin:auto;
+    border-collapse: collapse;
+    border-radius: 10px;
+    border: 1px solid darkorange;
+}
+tr{
+    display: flex;
+}
+th,td{
+    border:1px solid darkorange;
+    text-align: center;
+    flex: 1;
+}
+td>input{
+    border:none;
+    width: 100%;
+    text-align: center;
+}
+.add{
+    width: 598px;
+    border:1px solid darkorange;
+    border-top:none;
+    margin:0 auto;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    cursor: pointer;
+}
+.zhezhao{
+    width:100vw;
+    height:100vh;
+    background: rgba(0,0,0,0.5);
+    position: fixed;
+    left:0;
+    top:0;
+}

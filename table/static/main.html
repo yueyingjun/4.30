@@ -1,0 +1,31 @@
+<div class="tit" ng-controller="index">
+    学生信息管理
+</div>
+<table>
+    <tr>
+        <th>姓名</th>
+        <th>性别</th>
+        <th>年龄</th>
+        <th>班级</th>
+        <th>操作</th>
+    </tr>
+    <tr ng-repeat="item in data">
+        <td>
+            <input type="text" ng-model="item.name" ng-blur="blur(item.name,item.id,'name')"/>
+        </td>
+        <td>
+            <input type="text" ng-model="item.sex" ng-blur="blur(item.sex,item.id,'sex')"/>
+        </td>
+        <td>
+            <input type="text" ng-model="item.age" ng-blur="blur(item.age,item.id,'age')"/>
+        </td>
+        <td>
+            <input type="text" ng-model="item.classes" ng-blur="blur(item.classes,item.id,'classes')"/>
+        </td>
+        <td ng-click="del(item.id)"> 删除 </td>
+    </tr>
+</table>
+<div class="add">
+    <a href="#!/add">添加</a>
+</div>
+<div class="zhezhao" ng-show="isshow==true"></div>
