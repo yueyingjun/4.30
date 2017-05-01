@@ -1,0 +1,20 @@
+<div class="box" ng-controller="add">
+    <table class="table table-hover">
+        <caption>添加学生</caption>
+        <thead>
+        <tr>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>年龄</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td><input type="text" ng-model="name" ng-change="change(name)"></td>
+            <td><input type="text" ng-model="sex"></td>
+            <td><input type="text" ng-model="age"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div class="add" ng-click="add()"><a class="btn btn-success" href="#!/">提交</a></div>
