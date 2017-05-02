@@ -1,54 +1,52 @@
-angular.module("myapp",["service"])
-.controller("stu",["$scope","$http","$timeout","one","two",function($scope,$http,$timeout,one,two){
-
-   two();
-
-        $scope.isshow=false;
-
-        $http({url:"/select"}).then(function(data){
-          $scope.data=data.data
-        });
-
-
-        $scope.blur=function(id,val,ziduan){
-            $scope.isshow=true;
-            $http({url:"/update",method:"get",params:{id:id,val:val,ziduan:ziduan}}).then(function(data){
-                if(data.data=="ok"){
-                    $timeout(function(){
-                        $scope.isshow=false;
-                    },2000)
-                }
-            });
+angular.module("myapp",["ngRoute","ngAnimate"])
+.config(function ($routeProvider) {
+    $routeProvider.when("/",{
+        templateUrl:"/html/table.html",
+        controller: 'table'
+    }).when("/add",{
+        templateUrl:"/html/add.html",
+        controller: 'add'
+    })
+}).controller("table",function ($scope,$http) {
+$http({url:"/url"}).then(function (data) {
+    $scope.data=data.data;
+});
+// 编辑
+$scope.update=function (id,key,val) {
+    $http({url:"/update",params:{id:id,key:key,val:val}}).then(function (data) {
+        if(data.data=="ok"){
+            console.log("修改成功！");
         }
-
-        $scope.del=function(id){
-            $scope.isshow=true;
-           $http({url:"/del",params:{id:id}}).then(function(e){
-                if(e.data=="ok"){
-                    $scope.isshow=false;
-                    $scope.data.forEach(function(obj,index){
-                    if(obj.id==id){
-                        $scope.data.splice(index,1);
-                    }
-                    })
-                }
-            })
+    })
+    $scope.data.forEach(function (val,index) {
+        if(val.id==id){
+            val.key=val.val;
         }
-        
-        $scope.add=function () {
-             $http({url:"/add"}).then(function(e){
-                 if(e.data){
-                     var obj={};
-                     obj.id=e.data;
-                     obj.name="";
-                     obj.sex="";
-                     obj.classes="";
-                     obj.age="";
-                     $scope.data.push(obj);
-                 }
-
-             })
+    })
+};
+// 删除
+$scope.del=function (id) {
+    $http({url:"/del",params:{id:id}}).then(function (data) {
+        if(data.data=="ok"){
+            console.log("删除成功！");
         }
-
-
-}])
+    });
+    $scope.data.forEach(function (val,index) {
+        if(val.id==id){
+            $scope.data.splice(index,1);
+        }
+    })
+}
+}).controller("add",function ($scope,$http) {
+    $scope.num="";
+    $scope.name="";
+    $scope.old="";
+    $scope.sex="";
+    $scope.add=function () {
+        $http({url:"/add",params:{num:$scope.num,name:$scope.name,old:$scope.old,sex:$scope.sex}}).then(function (data) {
+            if(data.data=="ok"){
+                console.log("添加成功！");
+            }
+        })
+    }
+});
