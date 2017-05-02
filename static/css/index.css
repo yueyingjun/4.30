@@ -1,29 +1,33 @@
-body{
-    padding:0;margin: 0;
-}
 table{
-    width:600px;
-    margin:0 auto;
+    width: 600px;
+    margin: auto;
     border-collapse: collapse;
-    border:1px solid #000;
-    margin-top:30px;
 }
-th,td{
-    border:1px solid #000;
+table tr,table td,table th{
+    border: 1px solid #000;
+    width: 20%;
+    text-align: center;
+    height: 30px;
+}
+input{
+    width: 120px;
+    border: none;
     text-align: center;
 }
 .add{
-    width:598px;height:30px;
-    border:1px solid #000;
-    border-top:none;
+    display: block;
+    width: 100px;
+    height: 40px;
     text-align: center;
-    line-height: 30px;
-    margin:auto;
+    line-height: 40px;
+    margin: 0 auto;
+    text-decoration: none;
+    margin-top: 20px;
+    padding: 0;
 }
-.header{
+.deled{
+	text-align: center;
+	text-decoration: none;
+	width: 100%;
+}
 
-    width:100%;height:44px;
-    text-align: center;
-    line-height: 44px;
-    background:#ccc;
-}
