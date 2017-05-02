@@ -1,7 +1,13 @@
-angular.module("myapp",["service"])
-.controller("stu",["$scope","$http","$timeout","one","two",function($scope,$http,$timeout,one,two){
-
-   two();
+angular.module("myapp",["ngRoute","ngAnimate"]).config(function ($routeProvider) {
+    $routeProvider.when("/",{
+        templateUrl:"/template/select.html",
+        controller:"table"
+    }).when("/add",{
+        templateUrl:"/template/add.html",
+        controller:"add"
+    })
+})
+.controller("table",["$scope","$http","$timeout",function($scope,$http,$timeout){
 
         $scope.isshow=false;
 
@@ -10,7 +16,7 @@ angular.module("myapp",["service"])
         });
 
 
-        $scope.blur=function(id,val,ziduan){
+        $scope.blur=function(id,ziduan,val){
             $scope.isshow=true;
             $http({url:"/update",method:"get",params:{id:id,val:val,ziduan:ziduan}}).then(function(data){
                 if(data.data=="ok"){
@@ -34,21 +40,24 @@ angular.module("myapp",["service"])
                 }
             })
         }
-        
-        $scope.add=function () {
-             $http({url:"/add"}).then(function(e){
-                 if(e.data){
-                     var obj={};
-                     obj.id=e.data;
-                     obj.name="";
-                     obj.sex="";
-                     obj.classes="";
-                     obj.age="";
-                     $scope.data.push(obj);
-                 }
 
-             })
-        }
 
+
+
+}])
+.controller("add",["$scope","$http",function ($scope,$http) {
+    $scope.name="";
+    $scope.sex="";
+    $scope.age=0;
+    $scope.classes="";
+    $scope.add=function (name,sex,age,classes) {
+        console.log(name,sex,age,classes);
+    $http({url:"/addinfo",params:{name:name,sex:sex,age:age,classes:classes}}).then(function (data) {
+            if(data.data=="ok"){
+                window.location.href="#!/";
+
+            }
+        })
+     }
 
 }])
