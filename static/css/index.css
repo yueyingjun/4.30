@@ -1,24 +1,56 @@
 body{
     padding:0;margin: 0;
 }
+.box{
+    width: 600px;
+    margin: auto;
+}
+.table{
+    margin: 0;
+}
+input{
+    width: 100%;
+    outline: none;
+    border: none;
+}
+.view-animation.ng-enter, .view-animation.ng-leave {
+    transition:0.5s linear all;
+    position:fixed;
+    left:0;
+    top:50px;
+    width:100%;
+}
+.view-animation.ng-enter {
+     transform:translateX(100%);
+ }
+.view-animation.ng-leave,
+.view-animation.ng-enter.ng-enter-active {
+     transform:translateX(0%);
+ }
+.view-animation.ng-leave.ng-leave-active {
+     transform:translateX(100%);
+}
 table{
     width:600px;
     margin:0 auto;
     border-collapse: collapse;
     border:1px solid #000;
     margin-top:30px;
+    box-sizing: border-box;
 }
 th,td{
     border:1px solid #000;
     text-align: center;
+    border-collapse: collapse;
 }
 .add{
-    width:598px;height:30px;
-    border:1px solid #000;
+    width:600px;height:30px;
+    border:1px solid #ddd;
     border-top:none;
     text-align: center;
     line-height: 30px;
     margin:auto;
+    box-sizing: border-box;
 }
 .header{
 
@@ -26,4 +58,8 @@ th,td{
     text-align: center;
     line-height: 44px;
     background:#ccc;
+}
+.btn{
+    height: 100%;
+    padding: 0px 6px;
 }
