@@ -6,10 +6,10 @@ var app=express();
 
 var connnect=mysql.createConnection({
   host:"localhost",
-  port:"3306",
+  // port:"3306",
   user:"root",
-  password:"root",
-  database:"uek1610"
+  password:"",
+  database:"stuinfo"
 })
 /*静态文件*/
  app.use(express.static(path.join(__dirname,"static")))
@@ -26,7 +26,7 @@ app.get("/",function(req,res){
     res.render("index",{name:"aa"})
 })
 app.get("/select",function(req,res){
-    connnect.query("select * from stuinfo",function(error,result){
+    connnect.query("select * from stu",function(error,result){
 
         res.send(JSON.stringify(result));
     })
@@ -40,7 +40,7 @@ app.get("/update",function(req,res){
 
 
 
-    connnect.query(`update stuinfo set ${ziduan}='${val}' where id=${id}`,function(error,result){
+    connnect.query(`update stu set ${ziduan}='${val}' where id=${id}`,function(error,result){
       res.send("ok");
     })
 
@@ -50,7 +50,7 @@ app.get("/update",function(req,res){
 app.get("/del",function(req,res){
     var id=req.query.id;
 
-    connnect.query("delete from stuinfo where id="+id,function(error,result){
+    connnect.query("delete from stu where id="+id,function(error,result){
         if(result.affectedRows>0){
 
             res.send("ok");
@@ -59,9 +59,9 @@ app.get("/del",function(req,res){
 })
 
 app.get("/add",function(req,res){
-      connnect.query("insert into stuinfo (name,sex,age,classes) values ('','','','')",function(error,result){
+      connnect.query("insert into stu (name,sex,age,home) values ('','','','')",function(error,result){
             res.send(result.insertId.toString());
       })
 })
 
-app.listen(8888);
+app.listen(6666);

@@ -1,7 +1,6 @@
-angular.module("myapp",["service"])
-.controller("stu",["$scope","$http","$timeout","one","two",function($scope,$http,$timeout,one,two){
+angular.module("myapp",[])
+.controller("stu",["$scope","$http","$timeout",function($scope,$http,$timeout){
 
-   two();
 
         $scope.isshow=false;
 
@@ -42,7 +41,7 @@ angular.module("myapp",["service"])
                      obj.id=e.data;
                      obj.name="";
                      obj.sex="";
-                     obj.classes="";
+                     obj.home="";
                      obj.age="";
                      $scope.data.push(obj);
                  }
